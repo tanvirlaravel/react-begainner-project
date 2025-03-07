@@ -1,4 +1,4 @@
-function TodoItem({ todo, onToggle }) {
+function TodoItem({ todo, onToggle, onDelete }) {
   return (
     <div className={`todo-item ${todo.completed ? 'completed' : ''}`}>
       <input
@@ -10,7 +10,7 @@ function TodoItem({ todo, onToggle }) {
         }}
       />
       <span>{todo.text}</span>
-      <button>Delete</button>
+      <button onClick={() => onDelete(todo.id)}>Delete</button>
     </div>
   );
 }

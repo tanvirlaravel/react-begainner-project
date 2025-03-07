@@ -27,11 +27,15 @@ function ToDoApp() {
     );
   }
 
+  function deleteTodo(delId){
+    console.log(delId);
+  }
+
   return (
     <div className="app">
       <h1>Todo App</h1>
       <AddTodo onAdd={addTodo} />
-      <TodoList todos={todos} onToggle={toggleTodo} />
+      <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo} />
     </div>
   );
 }
