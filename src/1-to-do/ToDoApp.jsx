@@ -11,7 +11,12 @@ function ToDoApp() {
   ]);
 
   function addTodo(text) {
-    console.log(text);
+    const newTodo = {
+      id: Date.now(),
+      text,
+      completed: false,
+    };
+    setTodos([...todos, newTodo]);
   }
 
   return (
