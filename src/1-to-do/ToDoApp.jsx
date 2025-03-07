@@ -19,11 +19,15 @@ function ToDoApp() {
     setTodos([...todos, newTodo]);
   }
 
+  function toggleTodo(id) {
+    console.log(id);
+  }
+
   return (
     <div className="app">
       <h1>Todo App</h1>
       <AddTodo onAdd={addTodo} />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} onToggle={toggleTodo} />
     </div>
   );
 }

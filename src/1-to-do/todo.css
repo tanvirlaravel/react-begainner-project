@@ -1,38 +1,39 @@
 .app {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  .todo-list {
-    border-top: 1px solid #ddd;
-    padding-top: 20px;
-  }
-  
-  .todo-item {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    margin: 5px 0;
-    background: #f9f9f9;
-    border-radius: 4px;
-  }
-  
-  .todo-item.completed span {
-    text-decoration: line-through;
-    color: #888;
-  }
-  
-  .todo-item input[type="checkbox"] {
-    margin-right: 10px;
-  }
-  
-  .todo-item button {
-    margin-left: auto;
-    background: #ff4444;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #000;
+}
+
+.todo-list {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 5px 0;
+  background: #f9f9f9;
+  border-radius: 4px;
+}
+
+.todo-item.completed span {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.todo-item input[type='checkbox'] {
+  margin-right: 10px;
+}
+
+.todo-item button {
+  margin-left: auto;
+  background: #ff4444;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
