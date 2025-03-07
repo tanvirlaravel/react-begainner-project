@@ -1,13 +1,8 @@
-import './App.css'
+import ToDoApp from './1-to-do/ToDoApp';
+import './App.css';
 
 function App() {
-  
-
-  return (
-    <>
-     <h1>React Begainner projects</h1>
-    </>
-  )
+  return <ToDoApp />;
 }
 
-export default App
+export default App;
