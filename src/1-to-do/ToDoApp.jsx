@@ -34,6 +34,11 @@ function ToDoApp() {
   return (
     <div className="app">
       <h1>Todo App</h1>
+      <div className="filters">
+        <button>All</button>
+        <button>Active</button>
+        <button>Completed</button>
+      </div>
       <AddTodo onAdd={addTodo} />
       <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo} />
     </div>
