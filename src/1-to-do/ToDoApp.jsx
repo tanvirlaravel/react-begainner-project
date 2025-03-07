@@ -10,6 +10,14 @@ function ToDoApp() {
     { id: 3, text: 'Deploy the App', completed: false },
   ]);
 
+  const [filter, setFilter] = useState('all');
+
+  const filterTodos = todos.filter((todo) => {
+    if (filter === 'completed') return todo.completed;
+    if (filter === 'active') return !todo.completed;
+    return true;
+  });
+
   function addTodo(text) {
     const newTodo = {
       id: Date.now(),
@@ -35,12 +43,16 @@ function ToDoApp() {
     <div className="app">
       <h1>Todo App</h1>
       <div className="filters">
-        <button>All</button>
-        <button>Active</button>
-        <button>Completed</button>
+        <button onClick={() => setFilter('all')}>All</button>
+        <button onClick={() => setFilter('active')}>Active</button>
+        <button onClick={() => setFilter('completed')}>Completed</button>
       </div>
       <AddTodo onAdd={addTodo} />
-      <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo} />
+      <TodoList
+        todos={filterTodos}
+        onToggle={toggleTodo}
+        onDelete={deleteTodo}
+      />
     </div>
   );
 }
