@@ -1,6 +1,9 @@
-function AddTodo() {
+function AddTodo({ onAdd }) {
   return (
-    <div>AddTodo</div>
-  )
+    <form className="add-todo">
+      <input type="text" placeholder="Add a new task..." />
+      <button>Add</button>
+    </form>
+  );
 }
-export default AddTodo
+export default AddTodo;
