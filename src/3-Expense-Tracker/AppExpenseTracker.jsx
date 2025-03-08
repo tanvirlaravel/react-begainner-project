@@ -3,6 +3,7 @@ import ExpenseForm from './ExpenseForm';
 import ExpenseList from './ExpenseList';
 import { useReducer } from 'react';
 import expenseReducer from './expenseReducer';
+import ExpenseFilter from './ExpenseFilter';
 
 // Initial state
 const initialState = {
@@ -17,6 +18,7 @@ function AppExpenseTracker() {
   return (
     <div>
       <h1>App Expense Tracker</h1>
+      <ExpenseFilter dispatch={dispatch}/>
       <ExpenseForm  dispatch={dispatch} />
       <ExpenseList expenses={state.expenses} />
     </div>
