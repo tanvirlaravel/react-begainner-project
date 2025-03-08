@@ -14,6 +14,15 @@ const initialState = {
 function AppExpenseTracker() {
   const [state, dispatch] = useReducer(expenseReducer, initialState);
 
+  // Filter expenses based on current filter
+  const filteredExpenses = state.expenses.filter(exp =>
+    state.filter === 'All' ? true : exp.category.toLowerCase() === state.filter.toLowerCase()
+  );
+
+  console.log("Current Filter:", state.filter);
+  console.log("Expenses:", state.expenses);
+  console.log(filteredExpenses);
+
   return (
     <div>
       <h1>App Expense Tracker</h1>
@@ -22,7 +31,7 @@ function AppExpenseTracker() {
         setFilter={(value) => dispatch({ type: 'SET_FILTER', payload: value })}
       />
       <ExpenseForm dispatch={dispatch} />
-      <ExpenseList expenses={state.expenses} />
+      <ExpenseList expenses={filteredExpenses} />
     </div>
   );
 }
