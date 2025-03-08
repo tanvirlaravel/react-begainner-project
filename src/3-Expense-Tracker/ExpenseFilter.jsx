@@ -1,11 +1,11 @@
-function ExpenseFilter({dispatch}) {
+function ExpenseFilter({ filter, dispatch }) {
   return (
-    <select>
-      <option>All</option>
-      <option>Food</option>
-      <option>Transport</option>
-      <option>Entertainment</option>
+    <select value={filter}>
+      <option value='all'>All</option>
+      <option value='food'>Food</option>
+      <option value='transport'>Transport</option>
+      <option value='entertainment'>Entertainment</option>
     </select>
   );
 }
-export default ExpenseFilter
+export default ExpenseFilter;
