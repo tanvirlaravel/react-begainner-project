@@ -1,14 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import TodoList from './TodoList';
 import './todo.css';
 import AddTodo from './AddTodo';
 
 function ToDoApp() {
-  const [todos, setTodos] = useState([
-    { id: 1, text: 'Learn React', completed: false },
-    { id: 2, text: 'Build a To-Do App', completed: true },
-    { id: 3, text: 'Deploy the App', completed: false },
-  ]);
+  const [todos, setTodos] = useState([]);
 
   const [filter, setFilter] = useState('all');
 
@@ -38,6 +34,20 @@ function ToDoApp() {
   function deleteTodo(delId) {
     setTodos(todos.filter((todo) => todo.id !== delId));
   }
+
+  useEffect(() => {
+    const saveTodos = localStorage.getItem('todos');
+    if (saveTodos) setTodos(JSON.parse(saveTodos));
+    // console.log('saveTodos:', saveTodos),
+    //   console.log('JSON.parse(saveTodos)::', JSON.parse(saveTodos));
+    // setTodos(JSON.parse(saveTodos));
+  }, []);
+
+  useEffect(() => {
+    if (todos.length) {
+      localStorage.setItem('todos', JSON.stringify(todos));
+    }
+  }, [todos]);
 
   return (
     <div className="app">
