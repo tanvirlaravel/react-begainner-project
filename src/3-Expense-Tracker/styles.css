@@ -1,0 +1,77 @@
+/* styles.css */
+
+/* Base styles for the app container */
+.app {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Header styling */
+  h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  /* Expense form styling */
+  .expense-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .expense-form input,
+  .expense-form select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .expense-form button {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+  }
+  
+  .expense-form button:hover {
+    background: #219a52;
+  }
+  
+  /* Expense list container */
+  .expense-list {
+    margin-top: 20px;
+  }
+  
+  /* Individual expense item styling */
+  .expense-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr auto auto;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  
+  .expense-item span {
+    color: #2c3e50;
+  }
+  
+  /* Expense filter styling */
+  .expense-filter {
+    margin: 20
