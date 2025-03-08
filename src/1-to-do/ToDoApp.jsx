@@ -35,6 +35,21 @@ function ToDoApp() {
     setTodos(todos.filter((todo) => todo.id !== delId));
   }
 
+  function editTodo(id, text) {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            text,
+          };
+        } else {
+          return todo;
+        }
+      })
+    );
+  }
+
   useEffect(() => {
     const saveTodos = localStorage.getItem('todos');
     if (saveTodos) setTodos(JSON.parse(saveTodos));
@@ -62,6 +77,7 @@ function ToDoApp() {
         todos={filterTodos}
         onToggle={toggleTodo}
         onDelete={deleteTodo}
+        onEdit={editTodo}
       />
     </div>
   );
