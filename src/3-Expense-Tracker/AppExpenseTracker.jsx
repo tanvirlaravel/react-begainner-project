@@ -17,7 +17,10 @@ function AppExpenseTracker() {
   return (
     <div>
       <h1>App Expense Tracker</h1>
-      <ExpenseFilter dispatch={dispatch} filter={state.filter} />
+      <ExpenseFilter
+        filter={state.filter}
+        setFilter={(value) => dispatch({ type: 'SET_FILTER', payload: value })}
+      />
       <ExpenseForm dispatch={dispatch} />
       <ExpenseList expenses={state.expenses} />
     </div>
