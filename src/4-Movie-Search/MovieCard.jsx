@@ -1,5 +1,5 @@
 function MovieCard({ movie }) {
-  console.log(movie);
+  
   return (
     <div className="movie-card">
       <img src={movie.Poster} alt={movie.Title} />
