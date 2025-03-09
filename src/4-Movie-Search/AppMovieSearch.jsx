@@ -4,14 +4,20 @@ import { API_KEY, BASE_URL, keyword } from './CONST_VALUE';
 import MovieList from './MovieList';
 import SearchBox from './SearchBox';
 import './style.css';
+import Pagination from './Pagination';
 
 function AppMovieSearch() {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
   const [totalMovie, setTotalMovie] = useState(0);
-  
+  const [pageNumber, setPageNumber] = useState(0);
   const [page, setPage] = useState(2);
+  const [resultsPerPage, setResultsPerPage] = useState(10);
+
+  function handlePagination(page) {
+    setPage(page);
+  }
 
   useEffect(() => {
     setIsLoading(true);
@@ -23,6 +29,8 @@ function AppMovieSearch() {
         const data = await response.json();
         setTotalMovie(data.totalResults);
         setMovies(data.Search);
+        setPageNumber(Math.ceil(data.totalResults / resultsPerPage));
+        setIsLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -31,10 +39,12 @@ function AppMovieSearch() {
     // fetchData();
 
     setTimeout(() => {
-      setTotalMovie(omdbApiMovies.totalResults);
+      setTotalMovie(Number(omdbApiMovies.totalResults));
       setMovies(omdbApiMovies.Search);
+      setPageNumber(Math.ceil(omdbApiMovies.totalResults / resultsPerPage));
       setIsLoading(false);
     }, 1000);
+
   }, [keyword, page]);
 
   return (
@@ -42,8 +52,7 @@ function AppMovieSearch() {
       <h1>AppMovieSearch</h1>
 
       <SearchBox />
-
-     
+      {/* <Pagination totalPages={pageNumber} onPagination={handlePagination} page={page} /> */}
 
       {isLoading && <h2>Loading...</h2>}
 

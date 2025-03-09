@@ -153,11 +153,19 @@ h1 {
 
 
 .pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: 20px;
+  display: flex
+;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    max-width: 48rem;
+    border: 1px solid #120303;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    padding: 1.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 6.2);
+    border-radius: 11px;
 }
 
 .pagination button {
@@ -179,7 +187,13 @@ h1 {
   background-color: #0056b3;
 }
 
-#page-info {
+.page-info {
   font-size: 18px;
   font-weight: bold;
+}
+
+
+.pagination button:disabled {
+  background: #ffe0008c;
+  cursor: not-allowed;
 }
