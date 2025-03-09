@@ -1,7 +1,7 @@
 import './styles.css';
 import ExpenseForm from './ExpenseForm';
 import ExpenseList from './ExpenseList';
-import { useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import expenseReducer from './expenseReducer';
 import ExpenseFilter from './ExpenseFilter';
 
@@ -14,14 +14,27 @@ const initialState = {
 function AppExpenseTracker() {
   const [state, dispatch] = useReducer(expenseReducer, initialState);
 
+  // console.log(state);
+
   // Filter expenses based on current filter
-  const filteredExpenses = state.expenses.filter(exp =>
-    state.filter === 'All' ? true : exp.category.toLowerCase() === state.filter.toLowerCase()
+  const filteredExpenses = state.expenses.filter((exp) =>
+    state.filter === 'All'
+      ? true
+      : exp.category.toLowerCase() === state.filter.toLowerCase()
   );
 
-  console.log("Current Filter:", state.filter);
-  console.log("Expenses:", state.expenses);
-  console.log(filteredExpenses);
+  useEffect(() => {
+    const savedExpenses = localStorage.getItem('expenses');
+    if (savedExpenses) {     
+      dispatch({ type: 'SET_EXPENSES', payload: JSON.parse(savedExpenses) });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (state.expenses.length) {
+      localStorage.setItem('expenses', JSON.stringify(state.expenses));
+    }
+  }, [state.expenses]);
 
   return (
     <div>
